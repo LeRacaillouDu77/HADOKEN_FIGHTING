@@ -12,7 +12,6 @@ class Map:
         self.height = 20
         self.tab = [['E'] * 10] * 20
     def draw_map(self, screen):
-        draw_background_rect(screen)
         for column in range(self.height):
             for row in range(self.length):
                 color = COLORS_TETROMINOS[self.tab[column][row]]

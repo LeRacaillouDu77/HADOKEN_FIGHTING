@@ -1,5 +1,6 @@
 import pygame
 from PIL import Image, ImageSequence
+import random
 
 EMPTY = (0, 0, 0)
 MARGIN = 3
@@ -22,53 +23,53 @@ TETROMINOS = {
          ['O', 'O']],  # Carré 2x2
     ],
     'T': [
-        [[0, 'T', 0],
+        [['E', 'T', 'E'],
          ['T', 'T', 'T']],  # Orientation normale (vers le haut)
-        [['T', 0],
+        [['T', 'E'],
          ['T', 'T'],
-         ['T', 0]],  # Rotation 90° à droite
+         ['T', 'E']],  # Rotation 9'E'° à droite
         [['T', 'T', 'T'],
-         [0, 'T', 0]],  # Rotation 180°
-        [[0, 'T'],
+         ['E', 'T', 'E']],  # Rotation 18'E'°
+        [['E', 'T'],
          ['T', 'T'],
-         [0, 'T']],  # Rotation 270° à droite
+         ['E', 'T']],  # Rotation 27'E'° à droite
     ],
     'S': [
-        [[0, 'S', 'S'],
-         ['S', 'S', 0]],  # Orientation normale
-        [['S', 0],
+        [['E', 'S', 'S'],
+         ['S', 'S', 'E']],  # Orientation normale
+        [['S', 'E'],
          ['S', 'S'],
-         [0, 'S']],  # Rotation 90°
+         ['E', 'S']],  # Rotation 9'E'°
     ],
     'Z': [
-        [['Z', 'Z', 0],
-         [0, 'Z', 'Z']],  # Orientation normale
-        [[0, 'Z'],
+        [['Z', 'Z', 'E'],
+         ['E', 'Z', 'Z']],  # Orientation normale
+        [['E', 'Z'],
          ['Z', 'Z'],
-         ['Z', 0]],  # Rotation 90°
+         ['Z', 'E']],  # Rotation 9'E'°
     ],
     'J': [
-        [['J', 0, 0],
+        [['J', 'E', 'E'],
          ['J', 'J', 'J']],  # Orientation normale (base gauche)
         [['J', 'J'],
-         ['J', 0],
-         ['J', 0]],  # Rotation 90°
+         ['J', 'E'],
+         ['J', 'E']],  # Rotation 9'E'°
         [['J', 'J', 'J'],
-         [0, 0, 'J']],  # Rotation 180°
-        [[0, 'J'],
-         [0, 'J'],
-         ['J', 'J']],  # Rotation 270°
+         ['E', 'E', 'J']],  # Rotation 18'E'°
+        [['E', 'J'],
+         ['E', 'J'],
+         ['J', 'J']],  # Rotation 27'E'°
     ],
     'L': [
-        [[0, 0, 'L'],
+        [['E', 'E', 'L'],
          ['L', 'L', 'L']],  # Orientation normale (base droite)
-        [['L', 0],
-         ['L', 0],
-         ['L', 'L']],  # Rotation 90°
+        [['L', 'E'],
+         ['L', 'E'],
+         ['L', 'L']],  # Rotation 9'E'°
         [['L', 'L', 'L'],
-         ['L', 0, 0]],  # Rotation 180°
+         ['L', 'E', 'E']],  # Rotation 18'E'°
         [['L', 'L'],
-         [0, 'L'],
-         [0, 'L']],  # Rotation 270°
+         ['E', 'L'],
+         ['E', 'L']],  # Rotation 270°
     ]
 }

@@ -1,5 +1,6 @@
 from conf import *
 from map import *
+from tetro import *
 
 pygame.init()
 
@@ -31,20 +32,38 @@ clock = pygame.time.Clock()
 frame_duration = 100  # Durée par frame en millisecondes (ajuste si nécessaire)
 frame_index = 0
 
+
+
 # Boucle principale Pygame
 running = True
 pygame.mixer.music.load("menu_theme.mp3")
 pygame.mixer.music.set_volume(0.0)
 pygame.mixer.music.play()
+
+
+
+
+
+
 playmat = Map()
+current_piece = get_random_piece()
 while running:
     for event in pygame.event.get():
+        current_piece.move_tetro(event)
         if event.type == pygame.QUIT:
             running = False
 
+    if current_piece.position[1] >= 20 + 20 * 21:
+        current_piece = get_random_piece()
+
+
+
     # Afficher la frame actuelle
     window.blit(pygame_frames[frame_index], (0, 0))
+    draw_background_rect(window)
     playmat.draw_map(window)
+    current_piece.draw_piece(window)
+    current_piece.auto_fall()
     pygame.display.update()
 
     # Passer à la frame suivante
