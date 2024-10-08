@@ -30,7 +30,6 @@ class Piece:
                 self.current_form = self.forms[self.current_form_index]
     def auto_fall(self):
         time_elapsed = pygame.time.get_ticks() - self.start_time
-        print(time_elapsed)
         if time_elapsed > 300 and self.position[1] < 20 + 20 * 21:
             self.position[1] += 20 + MARGIN
             self.start_time = pygame.time.get_ticks()
